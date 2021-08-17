@@ -1,18 +1,14 @@
 package de.tbollmeier.boli.frontend
 
+import de.tbollmeier.boli.fp.compose
 import de.tbollmeier.grammarous.*
 
 class Parser {
 
-    fun parse(code: String): Result<Ast> {
-
-        val tokenStream = lexer.scan(createStringCharStream(code))
-
-        return parser.parse(tokenStream)
-    }
-
     private val lexer = makeLexer()
     private val parser = SyntaxParser(makeGrammar())
+
+    val parse = compose(compose(::createStringCharStream, lexer::scan), parser::parse)
 
     private fun makeLexer(): Lexer {
 

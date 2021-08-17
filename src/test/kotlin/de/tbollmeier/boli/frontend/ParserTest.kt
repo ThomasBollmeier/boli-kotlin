@@ -23,10 +23,12 @@ internal class ParserTest {
     fun parse() {
 
         val code = """
-        1 - 2 + factor*5
+        1 - ( 2 + factor*5)
     """.trimIndent()
 
         val result = parser.parse(code)
+
+        assert(result is Result.Success)
 
         println( when (result) {
             is Result.Success -> AstXmlFormatter().toXml(result.value)
