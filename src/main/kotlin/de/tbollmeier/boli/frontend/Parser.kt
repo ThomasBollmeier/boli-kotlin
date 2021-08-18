@@ -1,6 +1,6 @@
 package de.tbollmeier.boli.frontend
 
-import de.tbollmeier.boli.fp.compose
+import de.tbollmeier.boli.fp.pipe
 import de.tbollmeier.grammarous.*
 
 class Parser {
@@ -8,13 +8,13 @@ class Parser {
     private val lexer = makeLexer()
     private val parser = SyntaxParser(makeGrammar())
 
-    val parse = compose(compose(::createStringCharStream, lexer::scan), parser::parse)
+    val parse = ::createStringCharStream pipe lexer::scan pipe parser::parse
 
     private fun makeLexer(): Lexer {
 
         val lexerGrammar = LexerGrammar().apply {
 
-            defineToken(Token.IDENT, "[a-z]+")
+            defineToken(Token.IDENT, "[a-z][_a-z0-9]*")
             defineToken(Token.NUMBER, "\\d+")
             defineToken(Token.PLUS, "\\+")
             defineToken(Token.MINUS, "-")

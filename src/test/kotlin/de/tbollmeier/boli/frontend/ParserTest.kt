@@ -23,7 +23,7 @@ internal class ParserTest {
     fun parse() {
 
         val code = """
-        1 - ( 2 + factor*5)
+        1 - ( 2 + factor_2 *5)
     """.trimIndent()
 
         val result = parser.parse(code)
@@ -36,4 +36,18 @@ internal class ParserTest {
         })
 
     }
-}
+
+    @Test
+    fun parseWithError() {
+
+        val code = """
+        1 - ( 2 + factor_!2 *5)
+    """.trimIndent()
+
+        val result = parser.parse(code)
+
+        assert(result is Result.Failure)
+
+        println((result as Result.Failure).message)
+
+    }}

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60761e9f-f75e-4828-ba7b-b70cc7fcf4c4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/de/tbollmeier/boli/fp/util.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/grammarous-jvm-0.9.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/libs/grammarous-jvm-0.9.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/tbollmeier/boli/fp/util.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/tbollmeier/boli/fp/util.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/tbollmeier/boli/frontend/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/tbollmeier/boli/frontend/Parser.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/kotlin/de/tbollmeier/boli/frontend/ParserTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/de/tbollmeier/boli/frontend/ParserTest.kt" afterDir="false" />
     </list>
@@ -69,7 +70,7 @@
       <recent name="de.tbollmeier.boli.frontend" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ParserTest.parse">
+  <component name="RunManager" selected="TestNG.ParserTest">
     <configuration name="ParserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -112,6 +113,23 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="ParserTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="boli.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.tbollmeier.boli.frontend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.tbollmeier.boli.frontend" />
+      <option name="MAIN_CLASS_NAME" value="de.tbollmeier.boli.frontend.ParserTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ParserTest.parse" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="boli.test" />
       <extension name="coverage">
@@ -132,6 +150,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ParserTest" />
         <item itemvalue="TestNG.ParserTest.parse" />
         <item itemvalue="Gradle.ParserTest.parse" />
         <item itemvalue="Gradle.ParserTest" />
@@ -154,11 +173,19 @@
       <option name="project" value="LOCAL" />
       <updated>1629182292009</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added function composition for parser">
+      <created>1629230925279</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1629230925279</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Added function composition for parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added function composition for parser" />
   </component>
 </project>

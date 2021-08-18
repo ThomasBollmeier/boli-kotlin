@@ -1,3 +1,3 @@
 package de.tbollmeier.boli.fp
 
-fun <A, B, C> compose(f: (A) -> B, g: (B) -> C) : (A) -> C = { g(f(it)) }
+infix fun <A, B, C> ((A) -> B).pipe(f: (B) -> C) : (A) -> C = { f(this(it)) }
