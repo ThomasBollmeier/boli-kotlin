@@ -22,6 +22,9 @@ class Parser {
             defineToken(Token.DIV, "/")
             defineToken(Token.LPAR, "\\(")
             defineToken(Token.RPAR, "\\)")
+            defineToken(Token.ASSIGN, "<-")
+
+            defineKeyword("defconst", Token.KW_DEF_CONST)
 
         }
 
@@ -31,6 +34,27 @@ class Parser {
     private fun makeGrammar(): Grammar {
 
         return grammar {
+
+            // stmts -> stmt*
+            ruleDef("stmts") {
+                many { rule("stmt") }
+            }
+
+            // stmt -> vardef | expr
+            ruleDef("stmt") {
+                oneOf {
+                    rule("constdef")
+                    rule("expr")
+                }
+            }
+
+            // constdef -> 'defconst' IDENT ASSIGN expr
+            ruleDef("constdef") {
+                terminal(Token.KW_DEF_CONST)
+                terminal(Token.IDENT, "ident")
+                terminal(Token.ASSIGN)
+                rule("expr", "value")
+            } transformBy ::tramsformConstDef
 
             // expr -> term ((PLUS|MINUS) term)*
             ruleDef("expr") {
@@ -71,9 +95,24 @@ class Parser {
 
     }
 
+    private fun tramsformConstDef(ast: Ast): Ast {
+        val result = Ast("constdef")
+        val ident = ast.getChildrenById("ident")[0]
+        val rhs = ast.getChildrenById("value")[0]
+        rhs.id = ""
+        result.attrs["name"] = ident.value
+        result.addChild(rhs)
+        return result
+    }
+
     private fun createBinOp(op: Ast, left: Ast, right: Ast) : Ast {
-        val result = Ast("binop")
-        result.attrs["operator"] = op.value
+        val result = Ast(when(op.value) {
+            "+" -> "add"
+            "-" -> "subtract"
+            "*" -> "multiply"
+            "/" -> "divide"
+            else -> "binop"
+        })
         left.id = ""
         result.addChild(left)
         right.id = ""
