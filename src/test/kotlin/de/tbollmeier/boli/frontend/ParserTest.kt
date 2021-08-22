@@ -23,9 +23,9 @@ internal class ParserTest {
     fun parse() {
 
         val code = """
-            defconst a <- 40 + 
-            2 1 - ( 2 + 
-            a * 5 )
+            defconst pi <- 3
+            defvar answer <- 40 + 2 
+            1 - (2 + answer * 5)
     """.trimIndent()
 
         val result = parser.parse(code)

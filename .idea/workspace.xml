@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60761e9f-f75e-4828-ba7b-b70cc7fcf4c4" name="Default Changelist" comment="">
+    <list default="true" id="60761e9f-f75e-4828-ba7b-b70cc7fcf4c4" name="Default Changelist" comment="Implemented constant definition">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/tbollmeier/boli/frontend/Parser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/tbollmeier/boli/frontend/Parser.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/de/tbollmeier/boli/frontend/Token.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/de/tbollmeier/boli/frontend/Token.kt" afterDir="false" />
@@ -185,13 +185,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629316873356</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Implemented constant definition">
+      <created>1629402693885</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1629402693885</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Added function composition for parser" />
     <MESSAGE value="Added pipe function in FP utils" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added pipe function in FP utils" />
+    <MESSAGE value="Implemented constant definition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented constant definition" />
   </component>
 </project>

@@ -25,6 +25,7 @@ class Parser {
             defineToken(Token.ASSIGN, "<-")
 
             defineKeyword("defconst", Token.KW_DEF_CONST)
+            defineKeyword("defvar", Token.KW_DEF_VAR)
 
         }
 
@@ -40,21 +41,24 @@ class Parser {
                 many { rule("stmt") }
             }
 
-            // stmt -> vardef | expr
+            // stmt -> def | expr
             ruleDef("stmt") {
                 oneOf {
-                    rule("constdef")
+                    rule("def")
                     rule("expr")
                 }
-            }
+            } transformBy ::transformStatement
 
-            // constdef -> 'defconst' IDENT ASSIGN expr
-            ruleDef("constdef") {
-                terminal(Token.KW_DEF_CONST)
+            // def -> ('defconst' | 'defvar') IDENT ASSIGN expr
+            ruleDef("def") {
+                oneOf {
+                    terminal(Token.KW_DEF_CONST)
+                    terminal(Token.KW_DEF_VAR)
+                }
                 terminal(Token.IDENT, "ident")
                 terminal(Token.ASSIGN)
                 rule("expr", "value")
-            } transformBy ::tramsformConstDef
+            } transformBy ::transformDef
 
             // expr -> term ((PLUS|MINUS) term)*
             ruleDef("expr") {
@@ -95,8 +99,13 @@ class Parser {
 
     }
 
-    private fun tramsformConstDef(ast: Ast): Ast {
-        val result = Ast("constdef")
+    private fun transformStatement(ast: Ast) : Ast {
+        return ast.children[0]
+    }
+
+    private fun transformDef(ast: Ast): Ast {
+        val tokenId = ast.children[0].name
+        val result = Ast(if (tokenId == Token.KW_DEF_CONST) "const" else "var")
         val ident = ast.getChildrenById("ident")[0]
         val rhs = ast.getChildrenById("value")[0]
         rhs.id = ""

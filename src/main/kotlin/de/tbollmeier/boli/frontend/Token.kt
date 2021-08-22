@@ -1,9 +1,8 @@
 package de.tbollmeier.boli.frontend
 
-import de.tbollmeier.grammarous.*
-
 object Token {
     const val KW_DEF_CONST = "KW_DEF_CONST"
+    const val KW_DEF_VAR = "KW_DEF_VAR"
     const val IDENT = "IDENT"
     const val NUMBER = "NUMBER"
     const val PLUS = "PLUS"
